@@ -1,3 +1,4 @@
+# coding: utf-8
 class PkgsController < ApplicationController
   protect_from_forgery :except => [:api_create]
 
@@ -5,6 +6,9 @@ class PkgsController < ApplicationController
 
 
   def show
+    unless signed_in?
+      redirect_to "/sessions/new"
+    end
     @pkg = Pkg.find params[:id]
     history = Pkg.where("id < ?",@pkg.id).limit(20).where(plat_id:@pkg.plat_id).id_desc
     history.each do |e|

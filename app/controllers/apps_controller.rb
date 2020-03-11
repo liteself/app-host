@@ -2,14 +2,20 @@ class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy, :comments]
 
   def index
+    unless signed_in?
+      redirect_to "/sessions/new"
+    end
     unless User.admin.exists?
       redirect_to new_user_path and return
     end
-    @apps = App.active.all
     @has_archived = App.archived.count > 0
+    @apps = App.active.all
   end
 
   def show
+    unless signed_in?
+      redirect_to "/sessions/new"
+    end
     redirect_to app_plats_path @app
   end
 
