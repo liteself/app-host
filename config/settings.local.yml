@@ -1,0 +1,8 @@
+PROTOCOL: "https://"
+HOST: "app-host.jubaotime.com:433"
+#HOST: "localhost:3000"
+
+# SECRET_KEY_BASE: "可以运行rake secret,docker用户会自动生成，可忽略"
+
+#-- secret_key_base create by laucher --
+SECRET_KEY_BASE: 4ed64e2478b57f0fa33b23157cf53734c4383c7ceaac49d4a652a9bdce97f4028819f0799ca1f0034a66db34bd50f4ecd14098af8049a4b4bac39ef160c2e89d
