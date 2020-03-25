@@ -7,7 +7,7 @@ class PkgsController < ApplicationController
 
   def show
     unless signed_in?
-      redirect_to "/sessions/new"
+      redirect_to "/sessions/new" and return
     end
     @pkg = Pkg.find params[:id]
     history = Pkg.where("id < ?",@pkg.id).limit(20).where(plat_id:@pkg.plat_id).id_desc

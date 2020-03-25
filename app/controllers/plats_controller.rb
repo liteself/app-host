@@ -4,7 +4,7 @@ class PlatsController < ApplicationController
 
   def index
     unless signed_in?
-      redirect_to "/sessions/new"
+      redirect_to "/sessions/new" and return
     end
     @plats = Plat.where(app_id:params[:app_id])
     if @plats.present?
@@ -16,7 +16,7 @@ class PlatsController < ApplicationController
 
   def show
     unless signed_in?
-      redirect_to "/sessions/new"
+      redirect_to "/sessions/new" and return
     end
     @pkgs = @plat.pkgs.id_desc.page(params[:page]).per(params[:per])
     @plats = Plat.where(app_id:params[:app_id]).order(:sort,:id)

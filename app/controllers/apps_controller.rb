@@ -3,7 +3,7 @@ class AppsController < ApplicationController
 
   def index
     unless signed_in?
-      redirect_to "/sessions/new"
+      redirect_to "/sessions/new" and return
     end
     unless User.admin.exists?
       redirect_to new_user_path and return
@@ -14,7 +14,7 @@ class AppsController < ApplicationController
 
   def show
     unless signed_in?
-      redirect_to "/sessions/new"
+      redirect_to "/sessions/new" and return 
     end
     redirect_to app_plats_path @app
   end
