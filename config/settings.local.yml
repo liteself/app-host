@@ -1,5 +1,5 @@
 PROTOCOL: "https://"
-HOST: "app-host.jubaotime.com:433"
+HOST: "app-host.jubaotime.com:443"
 #HOST: "localhost:3000"
 
 # SECRET_KEY_BASE: "可以运行rake secret,docker用户会自动生成，可忽略"
